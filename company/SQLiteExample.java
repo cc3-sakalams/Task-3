@@ -18,10 +18,31 @@ public class SQLiteExample {
                          "id INTEGER PRIMARY KEY, " +
                          "name TEXT NOT NULL, " +
                          "age INTEGER)");
+            
+            stmt.executeUpdate("DELETE FROM users");
 
-            stmt.executeUpdate("INSERT INTO users (name, age) VALUES ('Alice', 25)");
-            stmt.executeUpdate("INSERT INTO users (name, age) VALUES ('Bob', 30)");
-
+            String[][] sampleUsers = {
+                {"John Cena", "20"},
+                {"Aron Fulay", "20"},
+                {"Jhustine Genora", "19"},
+                {"Julie Brown", "22"},
+                {"Charlie Davis", "20"},
+                {"Reign Evans", "21"},
+                {"Rhainier Foster", "18"},
+                {"Kenjay Green", "23"},
+                {"Christopher Harris", "20"},
+                {"Kyrie Irving", "22"}
+            };
+            System.out.println("\nInserting 10 students...");
+            for (String[] user : sampleUsers) {
+                String insertSQL = "INSERT INTO users (name, age) VALUES (?, ?)";
+                try (PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
+                    pstmt.setString(1, user[0]);
+                    pstmt.setInt(2, Integer.parseInt(user[1]));
+                    pstmt.executeUpdate();
+                }
+            }
+            System.out.println("✅ 10 students inserted successfully!");
             ResultSet rs = stmt.executeQuery("SELECT * FROM users");
             System.out.println("\n📋 Users in database:");
             while (rs.next()) {
@@ -44,4 +65,5 @@ public class SQLiteExample {
             }
         }
     }
+
 }
