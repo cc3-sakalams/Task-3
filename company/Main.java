@@ -24,7 +24,7 @@ public class Main {
                 createStudent("S005", "Charlie", "Davis", 20, "Male", "Engineering", "Junior", "567-890-1234"),
                 createStudent("S006", "Reign", "Evans", 21, "Female", "Chemistry", "Sophomore", "678-901-2345"),
                 createStudent("S007", "Rhainier", "Foster", 18, "Male", "History", "Freshman", "789-012-3456"),
-                createStudent("S008", "Kenjay", "Green", 23, "Memale", "Literature", "Senior", "890-123-4567"),
+                createStudent("S008", "Kenjay", "Green", 23, "Female", "Literature", "Senior", "890-123-4567"),
                 createStudent("S009", "Christopher", "Harris", 20, "Male", "Business", "Sophomore", "901-234-5678"),
                 createStudent("S010", "Kyrie", "Irving", 22, "Male", "Art", "Junior", "012-345-6789")
         };
@@ -47,4 +47,5 @@ public class Main {
                 .withContactNumber(contact)
                 .build();
     }
+
 }
